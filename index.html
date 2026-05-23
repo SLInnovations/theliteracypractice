@@ -386,32 +386,16 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-card-stack">
-          <div class="hcard hcard-main">
-            <h3>Student Progress Snapshot</h3>
-            <p>Reading and writing growth over 12 weeks</p>
-            <div class="progress-bars">
-              <div class="progress-item">
-                <div class="progress-label"><span>Reading accuracy</span><span>84%</span></div>
-                <div class="progress-bar"><div class="progress-fill fill-coral" style="width:84%"></div></div>
-              </div>
-              <div class="progress-item">
-                <div class="progress-label"><span>Fluency rate</span><span>71%</span></div>
-                <div class="progress-bar"><div class="progress-fill fill-teal" style="width:71%"></div></div>
-              </div>
-              <div class="progress-item">
-                <div class="progress-label"><span>Written expression</span><span>92%</span></div>
-                <div class="progress-bar"><div class="progress-fill fill-amber" style="width:92%"></div></div>
-              </div>
-            </div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div class="hcard" style="background:var(--dark-green);padding:2.5rem;">
+            <p style="color:rgba(255,255,255,0.6);font-size:0.78rem;font-family:var(--font-head);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">From a parent</p>
+            <p style="color:white;font-size:1.05rem;font-style:italic;line-height:1.7;margin-bottom:1rem;">"We are so happy we made the decision to work with Michelle."</p>
+            <p style="color:var(--coral);font-family:var(--font-head);font-weight:700;font-size:0.82rem;margin:0;">Mari Chris C.</p>
           </div>
-          <div class="hcard hcard-quote">
-            <p>"We are so happy we made the decision to work with Michelle."</p>
-            <p class="attr">Mari Chris C.</p>
-          </div>
-          <div class="hcard hcard-stat">
-            <div class="big-num">3×</div>
-            <p>average fluency growth in the first semester</p>
+          <div class="hcard" style="background:var(--blush);padding:2rem;">
+            <p style="color:rgba(255,255,255,0.6);font-size:0.78rem;font-family:var(--font-head);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;color:var(--coral);">From a parent</p>
+            <p style="color:var(--dark-green);font-size:0.95rem;font-style:italic;line-height:1.7;margin-bottom:1rem;">"She was able to give my son the tools he needed to get through some challenging times, and change the narrative entirely."</p>
+            <p style="color:var(--teal);font-family:var(--font-head);font-weight:700;font-size:0.82rem;margin:0;">Jolene F.</p>
           </div>
         </div>
       </div>
@@ -573,10 +557,7 @@ function getNavHTML(activePage) {
   return `
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="sprout">TLP</span>
-        The Literacy Practice
-      </a>
+      <a href="index.html" class="nav-logo"><img src="logo.png" alt="The Literacy Practice" style="height:44px;width:auto;"></a>
       <ul class="nav-links" id="navLinks">
         ${links}
         <li><a href="https://koalendar.com/e/free-30-minute-parent-consultation" target="_blank" class="nav-cta">Book a Consult</a></li>
@@ -594,10 +575,7 @@ function getFooterHTML() {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
-            <span class="sprout">TLP</span>
-            The Literacy Practice
-          </a>
+          <a href="index.html" class="nav-logo"><img src="logo.png" alt="The Literacy Practice" style="height:44px;width:auto;"></a>
           <p>Online literacy tutoring for students who need more than a worksheet. Explicit, systematic, structured instruction. One student at a time.</p>
           <br>
           <a href="https://koalendar.com/e/free-30-minute-parent-consultation" target="_blank" class="btn btn-primary" style="font-size:0.88rem;padding:0.6rem 1.4rem;">Book a Free Consult</a>
