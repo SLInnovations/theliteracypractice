@@ -360,6 +360,42 @@
       .intro-grid { grid-template-columns: 1fr !important; }
       .intro-grid img { max-width: 220px !important; margin: 0 auto; display: block; }
     }
+    
+    /* ---- Mobile nav open state ---- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fdf8f4;
+        border-bottom: 1px solid #e8ddd6;
+        padding: 1rem 2rem 1.5rem;
+        z-index: 999;
+      }
+      .nav-links.open li a {
+        display: block;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #e8ddd6;
+        color: #2d3a35;
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .nav-toggle {
+        display: flex !important;
+      }
+      .nav-cta {
+        display: none;
+      }
+    }
+
     </style>
 </head>
 <body>
@@ -671,36 +707,17 @@ function getFooterHTML() {
   </footer>`;
 }
 
-function initNav() {
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-  }
-}
-
-document.addEventListener('DOMContentLoaded', initNav);
-
 </script>
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('Home');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  // Mobile nav toggle
-  (function() {
-    var toggle = document.getElementById('navToggle');
-    var links  = document.getElementById('navLinks');
-    if (toggle && links) {
-      toggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        links.classList.toggle('open');
-      });
-      document.addEventListener('click', function(e) {
-        if (!toggle.contains(e.target) && !links.contains(e.target)) {
-          links.classList.remove('open');
-        }
-      });
-    }
-  })();
+  var t = document.getElementById('navToggle');
+  var n = document.getElementById('navLinks');
+  if (t && n) {
+    t.addEventListener('click', function() {
+      n.classList.toggle('open');
+    });
+  }
 </script>
 </body>
 </html>

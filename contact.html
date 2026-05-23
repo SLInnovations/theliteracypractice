@@ -183,7 +183,43 @@
       .contact-grid { grid-template-columns: 1fr; }
       .form-row     { grid-template-columns: 1fr; }
     }
-  </style>
+  
+    /* ---- Mobile nav open state ---- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fdf8f4;
+        border-bottom: 1px solid #e8ddd6;
+        padding: 1rem 2rem 1.5rem;
+        z-index: 999;
+      }
+      .nav-links.open li a {
+        display: block;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #e8ddd6;
+        color: #2d3a35;
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .nav-toggle {
+        display: flex !important;
+      }
+      .nav-cta {
+        display: none;
+      }
+    }
+
+    </style>
 </head>
 <body>
 
@@ -412,52 +448,16 @@ function getFooterHTML() {
   </footer>`;
 }
 
-function initNav() {
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-  }
-}
-
-document.addEventListener('DOMContentLoaded', initNav);
-
 </script>
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('Contact');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  initNav();
-
-  async function submitForm() {
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const subject = document.getElementById('subject').value;
-    const level   = document.getElementById('grade').value;
-
-    if (!name || !email || !message) {
-      alert('Please fill in your name, email, and message.');
-      return;
-    }
-
-    // FORMSPREE: Replace xjgzorlb below with the ID from formspree.io
-    const FORMSPREE_ID = 'xjgzorlb';
-
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, subject, level, message })
-      });
-      if (res.ok) {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display  = 'block';
-      } else {
-        alert('Something went wrong. Please email hello@theliteracypractice.ca directly.');
-      }
-    } catch(e) {
-      alert('Something went wrong. Please email hello@theliteracypractice.ca directly.');
-    }
+  var t = document.getElementById('navToggle');
+  var n = document.getElementById('navLinks');
+  if (t && n) {
+    t.addEventListener('click', function() {
+      n.classList.toggle('open');
+    });
   }
 </script>
 </body>

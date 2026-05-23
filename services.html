@@ -192,7 +192,43 @@
       .services-grid { grid-template-columns: 1fr; }
       .session-grid  { grid-template-columns: repeat(2, 1fr); }
     }
-  </style>
+  
+    /* ---- Mobile nav open state ---- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fdf8f4;
+        border-bottom: 1px solid #e8ddd6;
+        padding: 1rem 2rem 1.5rem;
+        z-index: 999;
+      }
+      .nav-links.open li a {
+        display: block;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #e8ddd6;
+        color: #2d3a35;
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .nav-toggle {
+        display: flex !important;
+      }
+      .nav-cta {
+        display: none;
+      }
+    }
+
+    </style>
 </head>
 <body>
 
@@ -487,31 +523,17 @@ function getFooterHTML() {
   </footer>`;
 }
 
-function initNav() {
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-  }
-}
-
-document.addEventListener('DOMContentLoaded', initNav);
-
 </script>
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('Services');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  initNav();
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+  var t = document.getElementById('navToggle');
+  var n = document.getElementById('navLinks');
+  if (t && n) {
+    t.addEventListener('click', function() {
+      n.classList.toggle('open');
     });
-  });
+  }
 </script>
 </body>
 </html>
