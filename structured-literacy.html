@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structured Literacy, The Literacy Practice</title>
+  <meta name="description" content="What is structured literacy? Why it works, who it's for, and how it shapes every session at The Literacy Practice.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, #fdf0ee, var(--cream) 50%, #edf5f3);
+    }
+    .page-hero h1 { margin-bottom: 1rem; }
+    .page-hero .lead {
+      font-size: 1.1rem;
+      max-width: 640px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* What is it */
+    .explain-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .explain-sidebar {
+      background: var(--dark-green);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: white;
+      position: sticky;
+      top: 100px;
+    }
+
+    .explain-sidebar h3 { color: white; margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+    .sidebar-def {
+      background: rgba(255,255,255,0.08);
+      border-left: 3px solid var(--coral);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-def p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .sidebar-pillars h4 {
+      color: white;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-list { list-style: none; }
+    .pillar-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .pillar-list li:last-child { border-bottom: none; }
+    .pillar-list li .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
+    }
+
+    /* Principles */
+    .principles-section { background: var(--cream); }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .principle-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .principle-card .num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--blush);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .principle-card h4 { margin-bottom: 0.5rem; }
+    .principle-card p  { font-size: 0.9rem; margin: 0; }
+
+    /* The research */
+    .research-section { background: var(--dark-green); }
+    .research-section h2, .research-section .section-label { color: white; }
+    .research-section .divider { background: var(--coral); }
+    .research-section .research-lead { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 680px; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .stat-box .num {
+      font-family: var(--font-head);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; line-height: 1.6; }
+
+    .research-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    /* Myth busting */
+    .myth-section { background: white; }
+
+    .myth-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .myth-card {
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .myth-card .label {
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .myth-card.myth { background: #fff5f5; }
+    .myth-card.myth .label { color: #c0392b; }
+    .myth-card.myth h4 { color: #c0392b; text-decoration: line-through; opacity: 0.7; }
+
+    .myth-card.truth { background: #f0faf8; }
+    .myth-card.truth .label { color: var(--teal); }
+    .myth-card.truth h4 { color: var(--dark-green); }
+    .myth-card p { font-size: 0.9rem; margin: 0.5rem 0 0; }
+
+    /* CTA */
+    .sl-cta {
+      background: linear-gradient(135deg, var(--coral), #e86b6b);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .sl-cta h2 { color: white; margin-bottom: 1rem; }
+    .sl-cta p  { color: rgba(255,255,255,0.85); margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .sl-cta .btn { background: white; color: var(--coral); border-color: white; }
+    .sl-cta .btn:hover { background: var(--dark-green); color: white; border-color: var(--dark-green); }
+
+    @media (max-width: 900px) {
+      .explain-grid    { grid-template-columns: 1fr; }
+      .explain-sidebar { position: static; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .stat-row        { grid-template-columns: 1fr; }
+      .myth-grid       { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="chip chip-coral">The Method</span>
+    <h1>Why the method matters<br>more than the materials.</h1>
+    <p class="lead">
+      You can have the best worksheets in the world and still miss the point entirely. The research on how students learn to read and write is clear, and it has been for decades. This is what it looks like in practice.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section>
+  <div class="container">
+    <div class="explain-grid">
+      <div class="explain-content">
+        <p class="section-label">What It Is</p>
+        <h2>Instruction built on how the brain actually learns to read.</h2>
+        <div class="divider"></div>
+
+        <p>The research has been building for decades. The most effective reading and writing instruction is explicit, systematic, and cumulative, skills are taught directly, in a logical sequence, with each new concept building on what came before.</p>
+
+        <p>This is different from the way most of us were taught. Traditional classrooms often rely on exposure and immersion, reading a lot, seeing words repeatedly, hoping things click. For most students, that works fine. For students with dyslexia, ADHD, or processing differences, it doesn't. And for plenty of students without any formal diagnosis, it still leaves gaps.</p>
+
+        <p>Explicit, systematic instruction doesn't assume the brain will figure it out. It teaches the code, directly, step by step, with deliberate practice built in at every stage.</p>
+
+        <h3 style="margin: 2rem 0 1rem;">What "systematic" actually means</h3>
+
+        <p>Systematic means there's a sequence and it's intentional. We don't jump to paragraphs before sentences are solid. We don't introduce a complex spelling pattern before simpler ones are automatic. The sequence exists because of how reading and spelling work in the brain, and following it matters.</p>
+
+        <p>Every lesson I teach is designed around where your student actually is in that sequence. The assessment tells me where to begin. The roadmap tells me where we're going. The instruction gets us there.</p>
+
+        <h3 style="margin: 2rem 0 1rem;">Why writing gets left out</h3>
+
+        <p>Most of the conversation about reading science focuses on reading. Writing gets much less attention, even though the same principles apply. Explicit instruction in sentence structure, text organization, and the writing process produces results. Students don't discover how to write, they learn how to write. Systematically. From one sentence.</p>
+      </div>
+
+      <div class="explain-sidebar-wrap">
+        <div class="explain-sidebar">
+          <h3>In plain language:</h3>
+          <div class="sidebar-def">
+            <p>"Explicit, systematic instruction teaches the skills of reading and writing directly, in a deliberate sequence, with nothing left to chance or assumed."</p>
+          </div>
+          <div class="sidebar-pillars">
+            <h4>Core Components</h4>
+            <ul class="pillar-list">
+              <li><span class="dot"></span> Phonemic awareness</li>
+              <li><span class="dot"></span> Phonics & reading</li>
+              <li><span class="dot"></span> Fluency</li>
+              <li><span class="dot"></span> Vocabulary</li>
+              <li><span class="dot"></span> Reading comprehension</li>
+              <li><span class="dot"></span> Written expression</li>
+              <li><span class="dot"></span> Spelling & spelling</li>
+              <li><span class="dot"></span> Handwriting & keyboarding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles-section">
+  <div class="container">
+    <p class="section-label">How I Teach</p>
+    <h2>The principles behind every lesson.</h2>
+    <div class="divider"></div>
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="num">01</div>
+        <h4>Explicit</h4>
+        <p>Skills are taught directly. Nothing is implied, assumed, or left to discovery. If a student needs to know it, I teach it out loud.</p>
+      </div>
+      <div class="principle-card">
+        <div class="num">02</div>
+        <h4>Systematic</h4>
+        <p>There's a sequence and it's followed intentionally. Each skill builds on the one before. No gaps, no skipping ahead.</p>
+      </div>
+      <div class="principle-card">
+        <div class="num">03</div>
+        <h4>Cumulative</h4>
+        <p>Old skills don't disappear. They get reviewed, applied, and reinforced until they're automatic.</p>
+      </div>
+      <div class="principle-card">
+        <div class="num">04</div>
+        <h4>Diagnostic</h4>
+        <p>Teaching starts where the student actually is. Assessment tells me where to begin. Progress data tells me when to move forward.</p>
+      </div>
+      <div class="principle-card">
+        <div class="num">05</div>
+        <h4>Multisensory</h4>
+        <p>Visual, auditory, and kinesthetic channels work together. Students see it, say it, and feel it. More pathways mean more retrieval.</p>
+      </div>
+      <div class="principle-card">
+        <div class="num">06</div>
+        <h4>Responsive</h4>
+        <p>The plan adjusts. If something isn't working, I change the approach, not the student's effort level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="research-section">
+  <div class="container">
+    <p class="section-label">The Evidence</p>
+    <h2>This isn't a trend.</h2>
+    <div class="divider"></div>
+    <p class="research-lead">The research base for explicit, systematic literacy instruction spans decades and thousands of studies. This is what the science says about how students learn to read and write.</p>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="num">95%</div>
+        <p>of children can learn to read with the right instruction, according to estimates from the National Reading Panel (US).</p>
+      </div>
+      <div class="stat-box">
+        <div class="num">2–3×</div>
+        <p>faster reading growth, on average, for students receiving explicit phonics instruction versus whole-language approaches.</p>
+      </div>
+      <div class="stat-box">
+        <div class="num">OG</div>
+        <p>Orton-Gillingham methodology has the longest evidence base in structured literacy instruction, spanning over 80 years of use and study.</p>
+      </div>
+    </div>
+    <p class="research-note">Statistics are approximate and drawn from published research summaries. Worth verifying specific figures through primary sources like the National Reading Panel report (2000) and the What Works Clearinghouse.</p>
+  </div>
+</section>
+
+<!-- MYTHS -->
+<section class="myth-section">
+  <div class="container">
+    <p class="section-label">Common Misconceptions</p>
+    <h2>Things I hear a lot.</h2>
+    <div class="divider"></div>
+    <div class="myth-grid">
+      <div class="myth-card myth">
+        <div class="label">Myth</div>
+        <h4>"They'll catch up on their own."</h4>
+        <p>Reading gaps don't typically close without instruction. The research is clear on this: students who fall behind in early reading tend to stay behind without targeted intervention.</p>
+      </div>
+      <div class="myth-card truth">
+        <div class="label">Reality</div>
+        <h4>Gaps need to be filled directly.</h4>
+        <p>The good news: with the right instruction, students at any point can build the skills they're missing. It's not too late at any age.</p>
+      </div>
+      <div class="myth-card myth">
+        <div class="label">Myth</div>
+        <h4>"More reading practice will fix it."</h4>
+        <p>Reading more helps students who already have solid reading skills. For students with gaps, more exposure to text they can't fully decode reinforces bad habits.</p>
+      </div>
+      <div class="myth-card truth">
+        <div class="label">Reality</div>
+        <h4>The skill has to come first.</h4>
+        <p>Once reading is solid, wide reading becomes one of the best things a student can do. But the foundation has to be there first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sl-cta">
+  <div class="container--narrow">
+    <h2>Want to see this in action?</h2>
+    <p>A free consult is the best way to understand how I'd approach your student specifically. No pressure, just a real conversation.</p>
+    <a href="get-started.html" class="btn">Book a Free Consult</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="components.js"></script>
+<script>
+  document.getElementById('nav-placeholder').innerHTML = getNavHTML('Structured Literacy');
+  document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
+  initNav();
+</script>
+</body>
+</html>

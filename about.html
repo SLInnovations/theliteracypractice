@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About, The Literacy Practice</title>
+  <meta name="description" content="Meet Michelle McIntosh, OG-certified literacy specialist with 16+ years of experience supporting students with reading, writing, and ADHD.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, var(--cream), #fff 60%, #fdf0ee);
+    }
+
+    .page-hero .chip { margin-bottom: 1.2rem; }
+    .page-hero h1   { margin-bottom: 1rem; }
+    .page-hero p.lead {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 640px;
+      color: var(--text-light);
+    }
+
+    /* About grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-image-block {
+      position: relative;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--blush), var(--teal));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .about-badge .num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--coral);
+      line-height: 1;
+    }
+
+    .about-badge p {
+      font-size: 0.8rem;
+      font-family: var(--font-head);
+      color: var(--text-light);
+      margin: 0.2rem 0 0;
+    }
+
+    /* Credentials */
+    .cred-list {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .cred-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cred-list li:last-child { border-bottom: none; }
+
+    .cred-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+
+    .cred-list li span {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .cred-list li strong {
+      display: block;
+      color: var(--dark-green);
+      font-weight: 600;
+    }
+
+    /* Values section */
+    .values-section { background: var(--dark-green); }
+    .values-section h2, .values-section .section-label { color: white; }
+    .values-section .divider { background: var(--coral); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .value-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .value-card h3   { color: white; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .value-card p    { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin: 0; }
+
+    /* Outside the lesson block */
+    .outside-block {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      margin-top: 3rem;
+    }
+
+    .outside-block h3 { margin-bottom: 1rem; }
+
+    /* CTA strip */
+    .about-cta {
+      background: var(--blush);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .about-cta h2 { margin-bottom: 1rem; }
+    .about-cta p  { color: var(--text-light); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    @media (max-width: 900px) {
+      .about-grid   { grid-template-columns: 1fr; }
+      .values-grid  { grid-template-columns: 1fr; }
+      .about-image-block { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="chip chip-teal">About Michelle</span>
+    <h1>This work chose me<br>as much as I chose it.</h1>
+    <p class="lead">
+      A parent notices something's off. Their child is avoiding books, shutting down over homework, working twice as hard as everyone else for half the result. By the time we talk, they've already tried a few things and they're tired. I've spent 16 years being the person who figures out what's actually going on, and builds something that works.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN ABOUT -->
+<section>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="section-label">My Story</p>
+        <h2>Why I do this work.</h2>
+        <div class="divider"></div>
+
+        <p>I've been a literacy specialist for over 16 years, and I became one because I kept watching smart, capable students get labeled as "behind" when what was really happening was much simpler: nobody had taught them to read, write, and spell in a way that worked for how their brain is wired.</p>
+
+        <p>There's a particular student I think about often. Sharp, funny, full of ideas. Completely shut down the moment anything literacy-related landed on the table. Not because they were lazy. Because nobody had taught the skills directly and in the right order. When we finally did, everything changed.</p>
+
+        <p>I'm Orton-Gillingham certified, trained in ADHD and executive function coaching, and certified in child safeguarding. In my practice, the literacy piece and the social-emotional piece are inseparable. A student who is anxious, avoidant, or shut down needs support on both fronts, and that's exactly what I'm trained to provide. I've worked with students one-on-one for over a decade and a half, and I've also created curriculum and practitioner resources used by tutors and teachers across the country through <a href="https://slinnovations.com" target="_blank">Spark Literacy Innovations</a>.</p>
+
+        <p>Everything I do is grounded in the same conviction: explicit, systematic instruction works. For every student. Pair that with real attention to how a student is feeling about themselves as a learner, and things start to move.</p>
+
+        <h3 style="margin: 2rem 0 1rem;">Credentials & Training</h3>
+        <ul class="cred-list">
+          <li>
+            <span class="cred-dot"></span>
+            <span><strong>Orton-Gillingham Certified Practitioner</strong>Certified in multisensory, structured literacy instruction</span>
+          </li>
+          <li>
+            <span class="cred-dot"></span>
+            <span><strong>ADHD & Executive Function Coach</strong>Trained to support students who need more than academics</span>
+          </li>
+          <li>
+            <span class="cred-dot"></span>
+            <span><strong>Commit to Kids, Child Safeguarding Certified</strong>Because the relationship between tutor and student matters</span>
+          </li>
+          <li>
+            <span class="cred-dot"></span>
+            <span><strong>Published Author</strong><em>Practical Activities, Write This Way,</em> and <em>Just Read!</em></span>
+          </li>
+          <li>
+            <span class="cred-dot"></span>
+            <span><strong>16+ Years Private Practice</strong>Thousands of hours working 1:1 with students of all ages</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-image-block">
+        <img src="michelle.png" alt="Michelle McIntosh, literacy specialist" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);">
+        <div class="about-badge">
+          <div class="num">16+</div>
+          <p>years of<br>1:1 practice</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="container">
+    <p class="section-label">What I Believe</p>
+    <h2>How I show up.</h2>
+    <div class="divider"></div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <h3>Fidelity to the method</h3>
+        <p>I believe in this work deeply. Every session is grounded in what the research says actually helps students learn to read, write, and spell. No shortcuts, no guesswork.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <h3>A safe place to land</h3>
+        <p>Families come to me tired and sometimes discouraged. I want every conversation to feel like a relief. I'll tell you honestly what I see, what I think will help, and what's realistic, and I'll do it with kindness.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <h3>The whole student</h3>
+        <p>Reading and writing are skills. Confidence, attention, and sense of self are too. I pay attention to all of it.</p>
+      </div>
+    </div>
+
+    <div class="outside-block">
+      <h3 style="color:var(--dark-green);">Outside the lesson.</h3>
+      <p>I live on the West Coast with my husband and our dog Sophie. My two sons are both professional musicians.</p>
+      <p style="margin:0;">I also co-lead a monthly structured literacy practitioners meetup for tutors and resource teachers, and I co-create curriculum and practitioner resources at <a href="https://slinnovations.com" target="_blank">Spark Literacy Innovations</a>. The work in the room and the work behind the scenes are connected for me. Both matter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:white; padding:4rem 0; text-align:center;">
+  <div class="container--narrow">
+    <p class="section-label" style="text-align:center;">From a Parent</p>
+    <p class="testimonial-quote">"Michelle is a phenomenal teacher. We are so grateful she took us on. My mom calls her a miracle worker."</p>
+    <p class="testimonial-attr">Laurel T.</p>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="container--narrow">
+    <h2>Want to see if we're a good fit?</h2>
+    <p>A free 30-minute consult. We'll talk about your student, what they need, and whether The Literacy Practice is the right next step.</p>
+    <a href="get-started.html" class="btn btn-primary">Book a Free Consult</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="components.js"></script>
+<script>
+  document.getElementById('nav-placeholder').innerHTML = getNavHTML('About');
+  document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
+  initNav();
+</script>
+</body>
+</html>

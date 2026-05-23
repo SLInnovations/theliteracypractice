@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Literacy Practice, Online Literacy Tutoring</title>
+  <meta name="description" content="Explicit, systematic, structured literacy tutoring for students of all ages. Explicit, systematic literacy instruction and ADHD-informed support.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      padding: 6rem 0 5rem;
+      background: linear-gradient(135deg, var(--cream) 0%, #fff 50%, #fdf0ee 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--blush) 0%, transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, #d6e8e5 0%, transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero h1 span { color: var(--coral); }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+    .hero-trust {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .trust-item .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card-stack {
+      position: relative;
+      height: 420px;
+    }
+
+    .hcard {
+      position: absolute;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hcard-main {
+      width: 100%;
+      top: 0; left: 0;
+      background: var(--dark-green);
+      color: white;
+      padding: 2rem;
+    }
+
+    .hcard-main h3 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hcard-main p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; }
+
+    .hcard-main .progress-bars { margin-top: 1.5rem; }
+    .progress-item { margin-bottom: 1rem; }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.4rem;
+      font-family: var(--font-head);
+    }
+    .progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      animation: fillBar 1.5s ease forwards;
+    }
+    @keyframes fillBar { from { width: 0; } }
+    .fill-coral  { background: var(--coral); }
+    .fill-teal   { background: var(--teal); }
+    .fill-amber  { background: var(--amber); }
+
+    .hcard-quote {
+      width: 75%;
+      bottom: 60px; right: -20px;
+      background: var(--blush);
+    }
+
+    .hcard-quote p {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--dark-green);
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .hcard-quote .attr {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--coral);
+      margin: 0;
+    }
+
+    .hcard-stat {
+      width: 44%;
+      bottom: 0; left: 20px;
+      text-align: center;
+    }
+
+    .hcard-stat .big-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--coral);
+      line-height: 1;
+    }
+
+    .hcard-stat p { font-size: 0.82rem; color: var(--text-light); margin: 0.3rem 0 0; }
+
+    /* ---- How it works ---- */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .how-item {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .how-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--blush);
+      color: var(--coral);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .how-item h3 { margin-bottom: 0.75rem; }
+
+    /* ---- Who I work with ---- */
+    .who-section { background: var(--dark-green); }
+    .who-section h2, .who-section .section-label { color: white; }
+    .who-section .divider { background: var(--coral); }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .who-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .who-card:hover { background: rgba(255,255,255,0.1); }
+
+    .who-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .who-card h3 { color: white; margin-bottom: 0.5rem; }
+    .who-card p  { color: rgba(255,255,255,0.65); font-size: 0.92rem; margin: 0; }
+
+    /* ---- Testimonial strip ---- */
+    .testimonial-strip {
+      background: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-family: var(--font-head);
+      font-weight: 500;
+      color: var(--dark-green);
+      font-style: italic;
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-attr {
+      font-size: 0.9rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--coral);
+    }
+
+    /* ---- What I believe ---- */
+    .belief-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .belief-card {
+      border-left: 4px solid var(--coral);
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      background: white;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow);
+    }
+
+    .belief-card:nth-child(2) { border-color: var(--teal); }
+    .belief-card:nth-child(3) { border-color: var(--amber); }
+
+    .belief-card h4 { margin-bottom: 0.5rem; }
+    .belief-card p  { font-size: 0.9rem; margin: 0; }
+
+    /* ---- CTA Banner ---- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--coral), #e86b6b);
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .cta-banner h2 { color: white; margin-bottom: 1rem; }
+    .cta-banner p  { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 2rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .cta-banner .btn { background: white; color: var(--coral); border-color: white; }
+    .cta-banner .btn:hover { background: var(--dark-green); color: white; border-color: var(--dark-green); }
+
+
+    /* ---- Testimonials ---- */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .testi-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border-left: 4px solid var(--coral);
+    }
+
+    .testi-card:nth-child(2) { border-color: var(--teal); }
+    .testi-card:nth-child(3) { border-color: var(--amber); }
+
+    .testi-quote {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--dark-green);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .testi-attr {
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--coral);
+      margin: 0;
+    }
+
+    .testi-card:nth-child(2) .testi-attr { color: var(--teal); }
+    .testi-card:nth-child(3) .testi-attr { color: #c8900a; }
+
+    @media (max-width: 900px) {
+      .testi-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner     { grid-template-columns: 1fr; }
+      .hero-visual    { display: none; }
+      .how-grid       { grid-template-columns: 1fr; }
+      .who-grid       { grid-template-columns: 1fr; }
+      .belief-grid    { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Online Literacy Tutoring</p>
+        <h1>Reading and writing<br>that finally <span>clicks.</span></h1>
+        <p class="hero-lead">
+          Some students need more than a worksheet and a lot more than "just practice more." Explicit, systematic, structured instruction, delivered 1:1, online, at their pace.
+        </p>
+        <div class="hero-actions">
+          <a href="get-started.html" class="btn btn-primary">Book a Free Consult</a>
+          <a href="services.html" class="btn btn-secondary">See How It Works</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="dot"></span> 16+ years experience</div>
+          <div class="trust-item"><span class="dot"></span> OG Certified</div>
+          <div class="trust-item"><span class="dot"></span> ADHD-informed</div>
+          <div class="trust-item"><span class="dot"></span> Online, anywhere in Canada</div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hcard hcard-main">
+            <h3>Student Progress Snapshot</h3>
+            <p>Reading and writing growth over 12 weeks</p>
+            <div class="progress-bars">
+              <div class="progress-item">
+                <div class="progress-label"><span>Reading accuracy</span><span>84%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-coral" style="width:84%"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Fluency rate</span><span>71%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-teal" style="width:71%"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Written expression</span><span>92%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-amber" style="width:92%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="hcard hcard-quote">
+            <p>"She was able to change the narrative entirely. It's been a game changer."</p>
+            <p class="attr">Jolene F.</p>
+          </div>
+          <div class="hcard hcard-stat">
+            <div class="big-num">3×</div>
+            <p>average fluency growth in the first semester</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <p class="section-label">The Process</p>
+    <h2>Simple from the start.</h2>
+    <div class="divider"></div>
+    <div class="how-grid">
+      <div class="how-item card">
+        <div class="how-num">1</div>
+        <h3>We talk first.</h3>
+        <p>A free 30-minute consult. You tell me about your student. I ask a lot of questions. We figure out together if this is the right fit.</p>
+      </div>
+      <div class="how-item card">
+        <div class="how-num">2</div>
+        <h3>We build a roadmap.</h3>
+        <p>I assess where your student is, identify the gaps, and put together a plan. Explicit, systematic, and built around how your student actually learns.</p>
+      </div>
+      <div class="how-item card">
+        <div class="how-num">3</div>
+        <h3>We get to work.</h3>
+        <p>Online sessions, 1:1. Structured lessons, consistent feedback, and a parent who stays in the loop every step of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO I WORK WITH -->
+<section class="who-section">
+  <div class="container">
+    <p class="section-label">Who This Is For</p>
+    <h2>Does this sound familiar?</h2>
+    <div class="divider"></div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-marker marker-1"></div>
+        <h3>The student who shuts down</h3>
+        <p>The moment a reading or writing task lands on the table, everything stops. It's not attitude. Something is missing in how they were taught.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-marker marker-2"></div>
+        <h3>The student with a diagnosis</h3>
+        <p>Dyslexia, ADHD, processing differences. They are not behind because they're not trying. They need instruction that works with how their brain is wired.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-marker marker-3"></div>
+        <h3>The student who reads fine but can't write</h3>
+        <p>Getting ideas onto paper is a whole different skill set. Writing is a craft. It can absolutely be taught, systematically, step by step.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-marker marker-4"></div>
+        <h3>The student who slipped through</h3>
+        <p>School is busy. Gaps get missed. Eventually, those gaps start to matter a lot. It's not too late.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-strip">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">From Families</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">"Michelle has many tricks in her bag for keeping lessons interesting and fun. She's extremely encouraging and a positive mentor. We are so happy we made the decision to work with her."</p>
+        <p class="testi-attr">Mari Chris C.</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"She was able to give my son the tools he needed to not only get through some challenging times, but change the narrative entirely. It's been a game changer."</p>
+        <p class="testi-attr">Jolene F.</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"You are a phenomenal teacher and we are so grateful you took us on. My mom calls you a miracle worker. He really enjoys your sessions."</p>
+        <p class="testi-attr">Laurel T.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I BELIEVE -->
+<section style="background:var(--cream);">
+  <div class="container">
+    <p class="section-label">The Approach</p>
+    <h2>What I know to be true.</h2>
+    <div class="divider"></div>
+    <div class="belief-grid">
+      <div class="belief-card">
+        <h4>Literacy changes everything.</h4>
+        <p>When a student can read and spell with confidence, the whole picture shifts. School gets easier. So does showing up for it.</p>
+      </div>
+      <div class="belief-card">
+        <h4>Explicit instruction works.</h4>
+        <p>Immersion isn't a teaching strategy. Students who struggle need skills taught directly, systematically, and with lots of practice built in.</p>
+      </div>
+      <div class="belief-card">
+        <h4>Every student has a roadmap.</h4>
+        <p>I've never met a student who didn't want to be a better reader or writer. The job is finding their on-ramp and building from there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container--narrow">
+    <h2>Let's talk about your student.</h2>
+    <p>A free 30-minute consult. No pressure, no pitch. Just a real conversation about what your student needs.</p>
+    <a href="get-started.html" class="btn">Book a Free Consult</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="components.js"></script>
+<script>
+  document.getElementById('nav-placeholder').innerHTML = getNavHTML('Home');
+  document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
+  initNav();
+</script>
+</body>
+</html>

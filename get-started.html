@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started, The Literacy Practice</title>
+  <meta name="description" content="Ready to get started? Book a free 30-minute consult with Michelle to talk about your student and find out if The Literacy Practice is the right fit.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, var(--cream), #fff8f0);
+    }
+    .page-hero h1 { margin-bottom: 1rem; }
+    .page-hero .lead {
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .step-item {
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0 auto 1.5rem;
+      border: 2px solid var(--border);
+      background: var(--cream);
+    }
+
+    .step-item:nth-child(1) .step-num { background: var(--coral); color: white; border-color: var(--coral); }
+    .step-item:nth-child(2) .step-num { background: white; color: var(--teal); border-color: var(--teal); }
+    .step-item:nth-child(3) .step-num { background: white; color: var(--amber); border-color: var(--amber); }
+    .step-item:nth-child(4) .step-num { background: white; color: var(--dark-green); border-color: var(--dark-green); }
+
+    .step-item h4 { margin-bottom: 0.5rem; font-size: 1rem; }
+    .step-item p  { font-size: 0.88rem; }
+
+    /* The consult */
+    .consult-section { background: white; }
+
+    .consult-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .consult-what h3 { margin-bottom: 1.5rem; }
+
+    .consult-list {
+      list-style: none;
+    }
+
+    .consult-list li {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .consult-list li:last-child { border-bottom: none; }
+
+    .consult-list .icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+
+    .consult-list .text strong {
+      display: block;
+      color: var(--dark-green);
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .consult-list .text span {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Booking embed placeholder */
+    .booking-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .booking-card .icon { font-size: 3rem; margin-bottom: 1.5rem; }
+    .booking-card h3 { margin-bottom: 0.75rem; }
+    .booking-card p  { margin-bottom: 2rem; font-size: 0.95rem; }
+
+    .booking-card .koalendar-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 1rem;
+    }
+
+    /* What to expect */
+    .expect-section { background: var(--dark-green); }
+    .expect-section h2, .expect-section .section-label { color: white; }
+    .expect-section .divider { background: var(--coral); }
+
+    .expect-timeline {
+      margin-top: 3rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      align-items: start;
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-label {
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding-top: 0.2rem;
+    }
+
+    .timeline-content h4 { color: white; margin-bottom: 0.4rem; font-size: 1rem; }
+    .timeline-content p  { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin: 0; }
+
+    /* Good fit section */
+    .fit-section { background: var(--cream); }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .fit-card { border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow); }
+    .fit-card.yes { background: white; border-top: 4px solid var(--teal); }
+    .fit-card.no  { background: white; border-top: 4px solid var(--border); }
+
+    .fit-card h3 { margin-bottom: 1rem; font-size: 1.1rem; }
+    .fit-card.yes h3 { color: var(--teal); }
+    .fit-card.no  h3 { color: var(--text-light); }
+
+    .fit-list { list-style: none; }
+    .fit-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border);
+    }
+    .fit-list li:last-child { border-bottom: none; }
+    .fit-card.yes .fit-list li::before { content: '✓'; color: var(--teal); font-weight: 700; }
+    .fit-card.no  .fit-list li::before { content: '→'; color: var(--text-light); }
+
+    /* CTA */
+    .gs-cta {
+      background: linear-gradient(135deg, var(--coral), #e86b6b);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .gs-cta h2 { color: white; margin-bottom: 1rem; }
+    .gs-cta p  { color: rgba(255,255,255,0.85); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .gs-cta .btn { background: white; color: var(--coral); border-color: white; }
+    .gs-cta .btn:hover { background: var(--dark-green); color: white; border-color: var(--dark-green); }
+
+    @media (max-width: 768px) {
+      .steps-grid   { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .consult-grid { grid-template-columns: 1fr; }
+      .fit-grid     { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="chip chip-coral">Let's Talk</span>
+    <h1>The first step is<br>a conversation.</h1>
+    <p class="lead">
+      A free 30-minute consult. You tell me about your student. I ask questions. By the end, we'll both know whether this is the right fit, and what to do next either way.
+    </p>
+    <div style="margin-top:2rem;">
+      <a href="#book" class="btn btn-primary">Book a Free Consult</a>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="container">
+    <p class="section-label">How It Works</p>
+    <h2>From consult to first session.</h2>
+    <div class="divider"></div>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h4>Book a consult</h4>
+        <p>Free. 30 minutes. We talk about your student and what you're seeing.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h4>We decide together</h4>
+        <p>If it feels like a good fit on both sides, we move forward.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h4>Assessment</h4>
+        <p>I assess your student and build a roadmap based on where they actually are.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <h4>Sessions begin</h4>
+        <p>Weekly 1:1 online sessions. Structured, consistent, and measurable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT + BOOKING -->
+<section class="consult-section" id="book">
+  <div class="container">
+    <div class="consult-grid">
+      <div class="consult-what">
+        <p class="section-label">The Consult</p>
+        <h2>What we cover in 30 minutes.</h2>
+        <div class="divider"></div>
+        <ul class="consult-list">
+          <li>
+            <span class="consult-num">01</span>
+            <div class="text">
+              <strong>Your student</strong>
+              <span>What you're seeing at school and at home. What's been tried. What's coming up.</span>
+            </div>
+          </li>
+          <li>
+            <span class="consult-num">02</span>
+            <div class="text">
+              <strong>The gaps</strong>
+              <span>I'll ask specific questions about reading and writing. This helps me understand where the real challenges might be before we even assess.</span>
+            </div>
+          </li>
+          <li>
+            <span class="consult-num">03</span>
+            <div class="text">
+              <strong>The approach</strong>
+              <span>I'll explain how I work and what explicit, systematic instruction looks like in practice, so you know exactly what you're considering.</span>
+            </div>
+          </li>
+          <li>
+            <span class="consult-num">04</span>
+            <div class="text">
+              <strong>Your questions</strong>
+              <span>This is your time too. Bring everything you've been wondering. There are no bad questions here.</span>
+            </div>
+          </li>
+          <li>
+            <span class="consult-num">05</span>
+            <div class="text">
+              <strong>Next steps</strong>
+              <span>If it feels like a fit, we'll talk about scheduling, assessment, and what to expect. If it's not right, I'll tell you honestly and point you in a better direction.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="consult-booking">
+        <div style="text-align:center;margin-bottom:1.5rem;">
+          <img src="michelle.png" alt="Michelle McIntosh" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--blush);box-shadow:var(--shadow);">
+        </div>
+        <div class="booking-card">
+          
+          <h3>Book your free consult</h3>
+          <p>Choose a time that works for you. The calendar shows real-time availability.</p>
+          <a href="https://koalendar.com" target="_blank" class="btn btn-primary">Open Booking Calendar</a>
+          <p class="koalendar-note">Booking is handled securely through Koalendar.<br>You'll receive a confirmation email right away.</p>
+        </div>
+
+        <div class="card" style="margin-top:1.5rem; padding:1.5rem 2rem;">
+          <h4 style="margin-bottom:0.75rem;">Prefer to email first?</h4>
+          <p style="font-size:0.9rem;">That's completely fine. Send me a note at <a href="mailto:hello@theliteracypractice.ca">hello@theliteracypractice.ca</a> and I'll get back to you within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+  <div class="container">
+    <p class="section-label">The First Month</p>
+    <h2>What happens after you book.</h2>
+    <div class="divider"></div>
+    <div class="expect-timeline">
+      <div class="timeline-item">
+        <div class="timeline-label">Week 0</div>
+        <div class="timeline-content">
+          <h4>Free consult</h4>
+          <p>We talk, I listen, we decide together. No sales pitch. If it's not the right fit, I'll say so.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-label">Week 1</div>
+        <div class="timeline-content">
+          <h4>Assessment session</h4>
+          <p>I assess where your student is in reading and writing. This typically takes one session, sometimes two. I'll share what I find right away.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-label">Week 2</div>
+        <div class="timeline-content">
+          <h4>Roadmap conversation</h4>
+          <p>I walk you through the plan, what we're working on, in what order, and why. You'll have a clear picture of where we're headed.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-label">Weeks 3+</div>
+        <div class="timeline-content">
+          <h4>Sessions begin</h4>
+          <p>Weekly 1:1 sessions. Structured, consistent, and always with a parent update available. Progress reports every 6–8 weeks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOD FIT -->
+<section class="fit-section">
+  <div class="container">
+    <p class="section-label">Honest Assessment</p>
+    <h2>Is this the right fit?</h2>
+    <div class="divider"></div>
+    <div class="fit-grid">
+      <div class="fit-card yes">
+        <h3>Families I work well with</h3>
+        <ul class="fit-list">
+          <li>Reading, writing, or spelling is a consistent struggle</li>
+          <li>Your student has ADHD, dyslexia, or a processing difference, diagnosed or suspected</li>
+          <li>You want explicit, systematic instruction with an individualized plan behind it</li>
+          <li>The school experience has been discouraging and you want to change that</li>
+          <li>You're looking for a consistent weekly rhythm and want to stay informed along the way</li>
+        </ul>
+      </div>
+      <div class="fit-card no">
+        <h3>A few honest caveats</h3>
+        <ul class="fit-list">
+          <li>I focus on literacy and executive function, not homework help or subject tutoring</li>
+          <li>All sessions are online, anywhere in Canada</li>
+          <li>I work best with families who can commit to a regular weekly schedule</li>
+          <li>Not sure if it's a fit? That's exactly what the free consult is for</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:2rem; font-size:0.9rem; color:var(--text-light);">Not sure which category you're in? That's what the consult is for. I'm happy to figure it out with you.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="gs-cta">
+  <div class="container--narrow">
+    <h2>Let's talk about your student.</h2>
+    <p>30 minutes. Free. No pressure. Just a real conversation about what your student needs.</p>
+    <a href="#book" class="btn">Book a Free Consult</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="components.js"></script>
+<script>
+  document.getElementById('nav-placeholder').innerHTML = getNavHTML('Get Started');
+  document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
+  initNav();
+</script>
+</body>
+</html>
