@@ -156,7 +156,12 @@
       .values-grid  { grid-template-columns: 1fr; }
       .about-image-block { display: none; }
     }
-  </style>
+  @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr !important; }
+      .about-image-block { display: block !important; margin-bottom: 2rem; }
+      .about-image-block img, .about-image-block div { max-width: 280px; margin: 0 auto; }
+    }
+    </style>
 </head>
 <body>
 
@@ -165,7 +170,7 @@
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="container">
-    <span class="chip" style="background:#84a59d;color:white;font-size:0.85rem;padding:0.5rem 1.4rem;">Hi, I'm Michelle — my students call me Ms. Mack.</span>
+    <span class="chip" style="background:#84a59d;color:white;font-size:0.85rem;padding:0.5rem 1.4rem;">Hi, I'm Michelle, my students call me Ms. Mack.</span>
     <h1>This work chose me<br>as much as I chose it.</h1>
     <p class="lead">
       I believe every child deserves access to effective literacy instruction, and that reading, writing, and spelling are skills that can be taught to anyone when the approach is right. I also believe you can't separate the literacy piece from the whole child. Confidence, self-concept, and emotional wellbeing are part of the picture too.
@@ -241,7 +246,7 @@
       <div class="value-card">
         <div class="value-num">02</div>
         <h3>A safe place to land</h3>
-        <p>Families come to me tired and sometimes discouraged. I want every conversation to feel like a relief. I'll tell you honestly what I see, what I think will help, and what's realistic, and I'll do it with care.</p>
+        <p>Families come to me tired and sometimes discouraged. I want every conversation to feel like a relief. I'll tell you honestly what I see, what I think will help, and what's realistic, and I'll do it with care and compassion.</p>
       </div>
       <div class="value-card">
         <div class="value-num">03</div>
@@ -396,17 +401,22 @@ document.addEventListener('DOMContentLoaded', initNav);
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('About');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  // Re-run initNav after injection so toggle is in the DOM
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    ['click','touchend'].forEach(evt => {
-      toggle.addEventListener(evt, (e) => {
-        e.preventDefault();
+  // Mobile nav toggle
+  (function() {
+    var toggle = document.getElementById('navToggle');
+    var links  = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
         links.classList.toggle('open');
       });
-    });
-  }
+      document.addEventListener('click', function(e) {
+        if (!toggle.contains(e.target) && !links.contains(e.target)) {
+          links.classList.remove('open');
+        }
+      });
+    }
+  })();
 </script>
 </body>
 </html>

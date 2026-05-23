@@ -382,7 +382,7 @@
     <div class="divider"></div>
     <div class="fit-grid">
       <div class="fit-card yes">
-        <h3>Families I work well with</h3>
+        <h3>Children who do well here</h3>
         <ul class="fit-list">
           <li>Reading, writing, or spelling is a consistent struggle</li>
           <li>Your child has ADHD, dyslexia, or a processing difference, diagnosed or suspected</li>
@@ -397,7 +397,7 @@
           <li>I focus on literacy and executive function, not homework help or subject tutoring</li>
           <li>All sessions are online, anywhere in Canada</li>
           <li>I work best with families who can commit to a regular weekly schedule</li>
-          <li>Not sure if it's a fit? I'm happy to figure it out with you — that's exactly what the free consult is for</li>
+          <li>Not sure if it's a fit? I'm happy to figure it out with you, that's exactly what the free consult is for</li>
         </ul>
       </div>
     </div>
@@ -535,17 +535,22 @@ document.addEventListener('DOMContentLoaded', initNav);
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('Get Started');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  // Re-run initNav after injection so toggle is in the DOM
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    ['click','touchend'].forEach(evt => {
-      toggle.addEventListener(evt, (e) => {
-        e.preventDefault();
+  // Mobile nav toggle
+  (function() {
+    var toggle = document.getElementById('navToggle');
+    var links  = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
         links.classList.toggle('open');
       });
-    });
-  }
+      document.addEventListener('click', function(e) {
+        if (!toggle.contains(e.target) && !links.contains(e.target)) {
+          links.classList.remove('open');
+        }
+      });
+    }
+  })();
 </script>
 </body>
 </html>

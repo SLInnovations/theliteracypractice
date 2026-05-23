@@ -356,7 +356,11 @@
       .who-grid       { grid-template-columns: 1fr; }
       .belief-grid    { grid-template-columns: 1fr; }
     }
-  </style>
+  @media (max-width: 768px) {
+      .intro-grid { grid-template-columns: 1fr !important; }
+      .intro-grid img { max-width: 220px !important; margin: 0 auto; display: block; }
+    }
+    </style>
 </head>
 <body>
 
@@ -423,7 +427,7 @@
             </div>
           </div>
           <div style="margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
-            <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;font-style:italic;margin:0;">"We are so happy we made the decision to work with Michelle." — Mari Chris C.</p>
+            <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;font-style:italic;margin:0;">"We are so happy we made the decision to work with Michelle.", Mari Chris C.</p>
           </div>
         </div>
       </div>
@@ -461,13 +465,13 @@
 <section class="who-section">
   <div class="container">
     <p class="section-label">Who This Is For</p>
-    <h2>Does this sound familiar?</h2>
+    <h2>Is this your child?</h2>
     <div class="divider"></div>
     <div class="who-grid">
       <div class="who-card">
         <div class="who-marker marker-1"></div>
         <h3>The child who dreads school</h3>
-        <p>Reading and writing feel like the hardest things in the world. They're not struggling because they're not trying. Reading and spelling are skills. They can be taught — sometimes they just haven't been taught in the right way yet.</p>
+        <p>Reading and writing feel like the hardest things in the world. They're not struggling because they're not trying. Reading and spelling are skills that can be taught. Sometimes they just haven't been taught in the way that works best for their brain.</p>
       </div>
       <div class="who-card">
         <div class="who-marker marker-2"></div>
@@ -535,9 +539,9 @@
 <!-- MICHELLE INTRO -->
 <section style="background:white; padding:5rem 0;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center;">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;" class="intro-grid">
       <div style="text-align:center;">
-        <img src="michelle2.jpg" alt="Michelle McIntosh" style="width:100%;max-width:340px;border-radius:var(--radius-lg);object-fit:cover;box-shadow:var(--shadow-lg);">
+        <img src="michelle2.jpg" alt="Michelle McIntosh" style="width:100%;max-width:340px;border-radius:var(--radius-lg);object-fit:cover;box-shadow:var(--shadow-lg);min-width:200px;">
       </div>
       <div>
         <p class="section-label">Hi, I'm Michelle</p>
@@ -681,17 +685,22 @@ document.addEventListener('DOMContentLoaded', initNav);
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('Home');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  // Re-run initNav after injection so toggle is in the DOM
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    ['click','touchend'].forEach(evt => {
-      toggle.addEventListener(evt, (e) => {
-        e.preventDefault();
+  // Mobile nav toggle
+  (function() {
+    var toggle = document.getElementById('navToggle');
+    var links  = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
         links.classList.toggle('open');
       });
-    });
-  }
+      document.addEventListener('click', function(e) {
+        if (!toggle.contains(e.target) && !links.contains(e.target)) {
+          links.classList.remove('open');
+        }
+      });
+    }
+  })();
 </script>
 </body>
 </html>

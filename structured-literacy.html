@@ -212,7 +212,7 @@
     <span class="chip chip-coral">The Method</span>
     <h1>Why the method matters<br>more than the materials.</h1>
     <p class="lead">
-      You can have the best worksheets in the world and still miss the point entirely. The research on how students learn to read and write is clear, and it has been for decades. This is what it looks like in practice.
+      The research on how children learn to read and write has been clear for decades. This is what it looks like when you put it into practice.
     </p>
   </div>
 </section>
@@ -494,17 +494,22 @@ document.addEventListener('DOMContentLoaded', initNav);
 <script>
   document.getElementById('nav-placeholder').innerHTML = getNavHTML('Structured Literacy');
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
-  // Re-run initNav after injection so toggle is in the DOM
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  if (toggle && links) {
-    ['click','touchend'].forEach(evt => {
-      toggle.addEventListener(evt, (e) => {
-        e.preventDefault();
+  // Mobile nav toggle
+  (function() {
+    var toggle = document.getElementById('navToggle');
+    var links  = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
         links.classList.toggle('open');
       });
-    });
-  }
+      document.addEventListener('click', function(e) {
+        if (!toggle.contains(e.target) && !links.contains(e.target)) {
+          links.classList.remove('open');
+        }
+      });
+    }
+  })();
 </script>
 </body>
 </html>
