@@ -26,7 +26,7 @@ function getNavHTML(activePage) {
       </a>
       <ul class="nav-links" id="navLinks">
         ${links}
-        <li><a href="get-started.html" class="nav-cta">Book a Consult</a></li>
+        <li><a href="https://koalendar.com/e/free-30-minute-parent-consultation" target="_blank" class="nav-cta">Book a Consult</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -47,7 +47,7 @@ function getFooterHTML() {
           </a>
           <p>Online literacy tutoring for students who need more than a worksheet. Explicit, systematic, structured instruction. One student at a time.</p>
           <br>
-          <a href="get-started.html" class="btn btn-primary" style="font-size:0.88rem;padding:0.6rem 1.4rem;">Book a Free Consult</a>
+          <a href="https://koalendar.com/e/free-30-minute-parent-consultation" target="_blank" class="btn btn-primary" style="font-size:0.88rem;padding:0.6rem 1.4rem;">Book a Free Consult</a>
         </div>
         <div class="footer-col">
           <h4>Pages</h4>

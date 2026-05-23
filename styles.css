@@ -2,7 +2,7 @@
    THE LITERACY PRACTICE — Global Styles
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 
 :root {
   --coral:      #f28482;
@@ -16,7 +16,7 @@
   --text-light: #5a6e68;
   --border:     #e8ddd6;
 
-  --font-head: 'Plus Jakarta Sans', sans-serif;
+  --font-head: 'Nunito Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
   --radius:    12px;

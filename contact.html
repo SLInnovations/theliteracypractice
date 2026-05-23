@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact, The Literacy Practice</title>
-  <meta name="description" content="Get in touch with The Literacy Practice. Email Michelle directly or book a free consult to talk about your student.">
+  <meta name="description" content="Get in touch with The Literacy Practice. Email Michelle directly or book a free consult to talk about your child.">
   <link rel="stylesheet" href="styles.css">
   <style>
     .page-hero {
@@ -209,7 +209,7 @@
       <div>
         <div class="form-card">
           <h3>Send a message</h3>
-          <p>Tell me a bit about your student and what you're looking for. I'll get back to you within one business day.</p>
+          <p>Tell me a bit about your child and what you're looking for. I'll get back to you within one business day.</p>
 
           <div id="contactForm">
             <div class="form-row">
@@ -248,7 +248,7 @@
             </div>
 
             <div class="form-group">
-              <label for="message">Tell me about your student</label>
+              <label for="message">Tell me about your child</label>
               <textarea id="message" placeholder="What are you seeing? What have you tried? What grade are they in? Any context you want to share is helpful."></textarea>
             </div>
 
@@ -287,29 +287,17 @@
             <span class="info-icon">CA</span>
             <div class="text">
               <strong>Location</strong>
-              <span>Based on Vancouver Island, BC. Serving students online across Canada.</span>
+              <span>Based on the West Coast. Serving families online across Canada.</span>
             </div>
           </div>
-          <div class="info-item">
-            <span class="info-icon">hrs</span>
-            <div class="text">
-              <strong>Session hours</strong>
-              <span>Monday–Friday, with some early evenings available. Scheduling confirmed after consult.</span>
-            </div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">web</span>
-            <div class="text">
-              <strong>Platform</strong>
-              <span>Sessions run via Lessonspace. Nothing to install, just a link.</span>
-            </div>
-          </div>
+
+
         </div>
 
         <div class="quick-book">
           <h3>Ready to book directly?</h3>
           <p>Skip the email and book a free 30-minute consult right now. The calendar shows real-time availability.</p>
-          <a href="get-started.html" class="btn btn-primary">Book a Free Consult</a>
+          <a href="https://koalendar.com/e/free-30-minute-parent-consultation" target="_blank" class="btn btn-primary">Book a Free Consult</a>
         </div>
 
       </div>
@@ -325,23 +313,36 @@
   document.getElementById('footer-placeholder').innerHTML = getFooterHTML();
   initNav();
 
-  function submitForm() {
+  async function submitForm() {
     const name    = document.getElementById('name').value.trim();
     const email   = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
+    const subject = document.getElementById('subject').value;
+    const level   = document.getElementById('grade').value;
 
     if (!name || !email || !message) {
       alert('Please fill in your name, email, and message.');
       return;
     }
 
-    // Show success state
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display  = 'block';
+    // FORMSPREE: Replace xjgzorlb below with the ID from formspree.io
+    const FORMSPREE_ID = 'xjgzorlb';
 
-    // NOTE: To send actual emails, connect to a form service like Formspree:
-    // Replace the button onclick with a real form POST to https://formspree.io/f/YOUR_ID
-    // or use Netlify Forms if hosting on Netlify (add data-netlify="true" to form tag)
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, subject, level, message })
+      });
+      if (res.ok) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display  = 'block';
+      } else {
+        alert('Something went wrong. Please email hello@theliteracypractice.ca directly.');
+      }
+    } catch(e) {
+      alert('Something went wrong. Please email hello@theliteracypractice.ca directly.');
+    }
   }
 </script>
 </body>
